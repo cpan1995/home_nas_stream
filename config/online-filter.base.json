@@ -1,0 +1,10 @@
+{
+  "scriptHosts": [
+    "challenges.cloudflare.com", "www.youtube-nocookie.com", "www.youtube.com",
+    "s.ytimg.com", "www.gstatic.com"
+  ],
+  "blockedDomains": [
+    "3q3pgtn5k3pkotn2etghm3c63g4okthie.cfd",
+    "el8lqnlh5i9xmh9q.rest", "static.cloudflareinsights.com"
+  ]
+}

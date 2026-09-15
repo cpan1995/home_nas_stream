@@ -1,0 +1,95 @@
+{
+    "title": "Settings",
+    "tabs": {
+        "general": "General",
+        "appearance": "Appearance",
+        "history": "History",
+        "playback": "Playback",
+        "omss": "OMSS",
+        "tmdb": "TMDB"
+    },
+    "appearance": {
+        "title": "Appearance",
+        "description": "Customize the look and feel of the app",
+        "theme": {
+            "label": "Theme",
+            "info": "Choose between light and dark mode",
+            "light": "Light",
+            "dark": "Dark",
+            "system": "System"
+        },
+        "colorTheme": {
+            "label": "Color Theme",
+            "info": "Pick an accent color for the interface"
+        }
+    },
+    "general": {
+        "title": "General",
+        "description": "Basic application preferences",
+        "language": {
+            "cardlabel": "App Language",
+            "selectlabel": "Available Languages",
+            "placeholder": "Select language",
+            "info": "We are working on translating the app to more languages. If you are interested in helping us out, please consider contributing to our translation efforts at {{gitUrl}}."
+        },
+        "reset": {
+            "title": "Reset all app data?",
+            "description": "This will clear ALL stored data (settings, history, etc). This cannot be undone.",
+            "button": "Reset App",
+            "label": "Remove all data from this site",
+            "info": "This will remove all data from this site and give you a clean fresh slate."
+        }
+    },
+    "history": {
+        "title": "Watch History",
+        "description": "Recently watched movies and episodes",
+        "clear": {
+            "title": "Clear watch history?",
+            "description": "This will permanently remove your entire watch history.",
+            "button": "Clear"
+        },
+        "empty": {
+            "title": "No history yet",
+            "description": "Start watching something and it will appear here."
+        },
+        "item": {
+            "removeTitle": "Remove item?",
+            "removeDescription": "This will remove this item from your history.",
+            "removeButton": "Remove"
+        }
+    },
+    "playback": {
+        "title": "Playback",
+        "description": "Control playback behavior",
+        "autoplayNext": {
+            "label": "Autoplay Next Episode",
+            "description": "Automatically play next episode when available"
+        }
+    },
+    "omss": {
+        "title": "OMSS Server ({{coreName}})",
+        "description": "Streaming backend configuration",
+        "label": "OMSS ({{coreName}}) API URL",
+        "note": {
+            "title": "CSP Note",
+            "value": "If you are running the app fullstack (i.e. with the fastify backend) and set the VITE_OMSS_API_URL env variable, the website will not be able to make requests to any other site other then TMDB and the OMSS_API_URL you've provided."
+        },
+        "connection": {
+            "connected": "Connected!",
+            "disconnected": "Disconnected!"
+        },
+        "info": "`localhost` means that your OMSS Server is running locally and only for you."
+    },
+    "tmdb": {
+        "title": "TMDB",
+        "description": "TMDB integration",
+        "apiKey": "TMDB API Key (required)",
+        "info": "This can only be changed by rebuilding the application with the new API key",
+        "region": {
+            "cardlabel": "Region",
+            "selectlabel": "Regions",
+            "placeholder": "Select region",
+            "info": "Will change TMDB's \"Trending Now\" Section etc. to your selected Region. {{projectName}} tries to guess your region based on your browser settings. You probably don't have to change this."
+        }
+    }
+}

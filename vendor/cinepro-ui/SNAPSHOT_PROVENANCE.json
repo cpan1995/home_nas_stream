@@ -1,0 +1,8 @@
+{
+  "format": 1,
+  "project": "cinepro-ui",
+  "sourceKind": "local-customized-snapshot",
+  "customizedSnapshot": true,
+  "remote": "https://github.com/cinepro-org/ui.git",
+  "commit": "3d944086d92d0c7d5a203b3466c26cb6a33b3734"
+}

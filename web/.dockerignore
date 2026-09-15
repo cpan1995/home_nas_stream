@@ -1,0 +1,15 @@
+node_modules
+build
+.git
+.env
+.env.*
+!.env.example
+*.tsbuildinfo
+test-results
+playwright-report
+.lavish
+*.log
+tests
+README.md
+
+core

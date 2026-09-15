@@ -1,0 +1,43 @@
+{
+    "controls": {
+        "play": "Play",
+        "pause": "Pause",
+        "mute": "Mute",
+        "unmute": "Unmute",
+        "fullscreen": "Fullscreen",
+        "exitFullscreen": "Exit Fullscreen",
+        "settings": "Settings",
+        "subtitles": "Subtitles",
+        "audio": "Audio Tracks",
+        "quality": "Quality",
+        "source": "Source",
+        "back": "Go back 10 seconds",
+        "forward": "Go forward 10 seconds",
+        "volume": "Volume"
+    },
+    "states": {
+        "loading": "Loading media...",
+        "buffering": "Buffering...",
+        "resolving": "Resolving sources...",
+        "resolvingSub": "Hang in there. The longer this takes, the more sources you’ll have!",
+        "error": "An error occurred while playing the media"
+    },
+    "selectors": {
+        "subtitlesOff": "Off",
+        "selectSource": "Select source",
+        "sourceNumber": "Source {{number}}"
+    },
+    "autoplay": {
+        "nextEpisode": "Next Episode in",
+        "playingNow": "Playing Now",
+        "cancel": "Cancel"
+    },
+    "settings": {
+        "tabs": {
+            "source": "Source",
+            "subtitles": "Subtitles",
+            "audio": "Audio"
+        },
+        "noAudioTracks": "No audio tracks available"
+    }
+}

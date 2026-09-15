@@ -1,0 +1,12 @@
+{
+    "tagline": "Your ultimate destination for movies and series. Watch movies and tv shows online for free with no ads or tracking!",
+    "cookie-policy": {
+        "label": "Cookie Policy",
+        "value": "We do not use/collect any kinds of cookies or other telemetry data.💪"
+    },
+    "links": {
+        "git": "GitHub Repository",
+        "about": "About Project",
+        "report-issue": "Report Issue"
+    }
+}

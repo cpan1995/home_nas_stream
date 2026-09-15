@@ -1,0 +1,47 @@
+{
+  "name": "screening-room",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc --noEmit && vite build",
+    "build:native": "npm run build && cmake -S . -B build -G Ninja && cmake --build build -j 4",
+    "start": "npm run start:directory",
+    "start:cinepro": "node scripts/cinepro-launch.mjs",
+    "test": "playwright test",
+    "test:providers": "node --test tests/screening-anime-sources.test.mjs tests/anime-providers.test.mjs tests/anime-mappings.test.mjs",
+    "test:cinepro-desktop": "node tests/cinepro-desktop.mjs",
+    "test:native": "cmake -S . -B build/native-test -G Ninja -DSCREENING_ROOM_TESTING=ON && cmake --build build/native-test -j 4 && ./build/native-test/metadata-tests && node tests/run-native.mjs",
+    "start:directory": "bash scripts/start-pi.sh",
+    "build:pi": "bash scripts/build-pi.sh",
+    "test:pi-startup": "python3 -B tests/pi-startup.test.py",
+    "setup:cinepro": "node scripts/cinepro-setup.mjs",
+    "configure:streams": "node scripts/configure-streams.mjs",
+    "test:stream-config": "node --test tests/stream-config.test.mjs tests/source-snapshot.test.mjs",
+    "snapshot:sources": "node scripts/snapshot-cinepro-sources.mjs",
+    "build:cinepro": "node scripts/build-cinepro-ui.mjs && node scripts/cinepro-launch.mjs --restart-ui",
+    "restart:cinepro": "node scripts/cinepro-launch.mjs --restart-ui",
+    "test:cinepro": "node scripts/cinepro-fixtures.mjs && node scripts/cinepro-launch.mjs && node --test tests/cinepro-launch.test.mjs && playwright test --config playwright.cinepro.config.ts"
+  },
+  "dependencies": {
+    "@fontsource/barlow-condensed": "^5.3.0",
+    "@fontsource/dm-sans": "^5.3.0",
+    "@fontsource/fraunces": "^5.3.0",
+    "@fontsource/nunito-sans": "^5.3.0",
+    "lucide-react": "^0.468.0",
+    "qrcode.react": "^4.2.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.58.0",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^4.3.0",
+    "prettier": "^3.9.6",
+    "typescript": "^5.7.0",
+    "vite": "^6.0.0"
+  }
+}

@@ -1,0 +1,22 @@
+:root {
+  --canvas: #edf3f7;
+  --surface: #f3f1ec;
+  --surface-soft: #e8eff5;
+  --text: #071b51;
+  --muted: #4b6182;
+  --primary: #064be4;
+  --focus: #064be4;
+  --selection: #dce7f4;
+  --border: #bcc7d5;
+  --artwork-background: #dfe8ef;
+  --font-body: "Nunito Sans", sans-serif;
+  --font-display: "Fraunces", Georgia, serif;
+  --body-size: 22px;
+  --small-size: 18px;
+  --safe-margin: 64px;
+  --space-sm: 12px;
+  --space-lg: 32px;
+  --radius-control: 7px;
+  --radius-panel: 14px;
+  --focus-width: 3px;
+}

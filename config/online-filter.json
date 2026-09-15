@@ -1,0 +1,180 @@
+{
+  "scriptHosts": [
+    "challenges.cloudflare.com",
+    "www.youtube-nocookie.com",
+    "www.youtube.com",
+    "s.ytimg.com",
+    "www.gstatic.com",
+    "moviesapi.to",
+    "vidlink.pro",
+    "vidfast.vc",
+    "player.cinezo.live",
+    "www.rivestream.app",
+    "anixo.buzz",
+    "supaplay.fun",
+    "megaplay.buzz",
+    "ani.megaplay.su",
+    "dropfile.cc",
+    "anilink.cc",
+    "tryembed.us.cc",
+    "cinextream.cc",
+    "nontongo.win",
+    "cdn.4animo.xyz"
+  ],
+  "blockedDomains": [
+    "3q3pgtn5k3pkotn2etghm3c63g4okthie.cfd",
+    "el8lqnlh5i9xmh9q.rest",
+    "static.cloudflareinsights.com"
+  ],
+  "playerHosts": [
+    "moviesapi.to",
+    "vidlink.pro",
+    "vidfast.vc",
+    "player.cinezo.live",
+    "www.rivestream.app",
+    "anixo.buzz",
+    "supaplay.fun",
+    "megaplay.buzz",
+    "ani.megaplay.su",
+    "dropfile.cc",
+    "anilink.cc",
+    "tryembed.us.cc",
+    "cinextream.cc",
+    "nontongo.win",
+    "cdn.4animo.xyz"
+  ],
+  "providerOrigins": {
+    "moviesapi": "https://moviesapi.to",
+    "vidlink": "https://vidlink.pro",
+    "vidfast": "https://vidfast.vc",
+    "cinezo": "https://player.cinezo.live",
+    "rivestream": "https://www.rivestream.app",
+    "anixo": "https://anixo.buzz",
+    "supaplay": "https://supaplay.fun",
+    "megaplay": "https://megaplay.buzz",
+    "animeplayer": "https://ani.megaplay.su",
+    "dropfile": "https://dropfile.cc",
+    "anilink": "https://anilink.cc",
+    "tryembed": "https://tryembed.us.cc",
+    "cinextream": "https://cinextream.cc",
+    "nontongo": "https://nontongo.win",
+    "4animo": "https://cdn.4animo.xyz"
+  },
+  "frameRules": [
+    {
+      "host": "moviesapi.to",
+      "pathPattern": "^/movie/[1-9][0-9]*/?$",
+      "query": {}
+    },
+    {
+      "host": "moviesapi.to",
+      "pathPattern": "^/tv/[1-9][0-9]*/[1-9][0-9]*/[1-9][0-9]*/?$",
+      "query": {}
+    },
+    {
+      "host": "vidlink.pro",
+      "pathPattern": "^/movie/[1-9][0-9]*/?$",
+      "query": {}
+    },
+    {
+      "host": "vidlink.pro",
+      "pathPattern": "^/tv/[1-9][0-9]*/[1-9][0-9]*/[1-9][0-9]*/?$",
+      "query": {}
+    },
+    {
+      "host": "vidfast.vc",
+      "pathPattern": "^/movie/[1-9][0-9]*/?$",
+      "query": {}
+    },
+    {
+      "host": "vidfast.vc",
+      "pathPattern": "^/tv/[1-9][0-9]*/[1-9][0-9]*/[1-9][0-9]*/?$",
+      "query": {}
+    },
+    {
+      "host": "player.cinezo.live",
+      "pathPattern": "^/embed/movie/[1-9][0-9]*/?$",
+      "query": {}
+    },
+    {
+      "host": "player.cinezo.live",
+      "pathPattern": "^/embed/tv/[1-9][0-9]*/[1-9][0-9]*/[1-9][0-9]*/?$",
+      "query": {}
+    },
+    {
+      "host": "player.cinezo.live",
+      "pathPattern": "^/embed/anime/[1-9][0-9]*/[1-9][0-9]*/?$",
+      "query": {}
+    },
+    {
+      "host": "www.rivestream.app",
+      "pathPattern": "^/embed/?$",
+      "query": {
+        "type": "^movie$",
+        "id": "^[1-9][0-9]*$"
+      }
+    },
+    {
+      "host": "www.rivestream.app",
+      "pathPattern": "^/embed/?$",
+      "query": {
+        "type": "^tv$",
+        "id": "^[1-9][0-9]*$",
+        "season": "^[1-9][0-9]*$",
+        "episode": "^[1-9][0-9]*$"
+      }
+    },
+    {
+      "host": "anixo.buzz",
+      "pathPattern": "^/embed/ani/[1-9][0-9]*/[1-9][0-9]*/(sub|dub)/?$",
+      "query": {}
+    },
+    {
+      "host": "supaplay.fun",
+      "pathPattern": "^/stream/ani/[1-9][0-9]*/[1-9][0-9]*/(sub|dub)/?$",
+      "query": {}
+    },
+    {
+      "host": "megaplay.buzz",
+      "pathPattern": "^/stream/ani/[1-9][0-9]*/[1-9][0-9]*/(sub|dub)/?$",
+      "query": {}
+    },
+    {
+      "host": "ani.megaplay.su",
+      "pathPattern": "^/ani/[1-9][0-9]*/[1-9][0-9]*/(sub|dub)/?$",
+      "query": {}
+    },
+    {
+      "host": "dropfile.cc",
+      "pathPattern": "^/player/tv/anilist-[1-9][0-9]*/1/[1-9][0-9]*/?$",
+      "query": {}
+    },
+    {
+      "host": "anilink.cc",
+      "pathPattern": "^/watch/[1-9][0-9]*/[1-9][0-9]*/?$",
+      "query": {
+        "variant": "^(sub|dub)$"
+      }
+    },
+    {
+      "host": "tryembed.us.cc",
+      "pathPattern": "^/embed/anime/[1-9][0-9]*/[1-9][0-9]*/(sub|dub)/?$",
+      "query": {}
+    },
+    {
+      "host": "cinextream.cc",
+      "pathPattern": "^/api/embed/anime/(sub|dub)/[1-9][0-9]*/[1-9][0-9]*/?$",
+      "query": {}
+    },
+    {
+      "host": "nontongo.win",
+      "pathPattern": "^/anime/[1-9][0-9]*/[1-9][0-9]*/play/?$",
+      "query": {}
+    },
+    {
+      "host": "cdn.4animo.xyz",
+      "pathPattern": "^/embed/ani/[1-9][0-9]*/[1-9][0-9]*/(sub|dub)/?$",
+      "query": {}
+    }
+  ]
+}

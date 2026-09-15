@@ -1,0 +1,28 @@
+@keyframes carousel-progress {
+    from {
+        transform: scaleX(0);
+    }
+
+    to {
+        transform: scaleX(1);
+    }
+}
+
+.animate-carousel-progress {
+    animation: carousel-progress 6500ms linear forwards;
+    will-change: transform;
+}
+
+@keyframes startup-loading-bar {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+.animate-startup-loading-bar {
+    width: 0%;
+    animation: startup-loading-bar 2000ms linear forwards;
+}

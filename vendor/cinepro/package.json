@@ -1,0 +1,33 @@
+{
+    "name": "@cinepro/core",
+    "version": "1.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "tsx watch src/server.ts",
+        "build": "tsc",
+        "start": "npm run build && node dist/server.js",
+        "format": "prettier --write src",
+        "clean": "npx rimraf dist",
+        "local:start": "bash run-local.sh start",
+        "local:test": "bash run-local.sh test",
+        "local:media-check": "bash run-local.sh media-check",
+        "local:movie-check": "bash run-local.sh movie-check",
+        "local:providers-check": "bash run-local.sh providers-check",
+        "test:providers": "npm run build && node --test tests/documented-embeds.test.mjs"
+    },
+    "dependencies": {
+        "@omss/framework": "1.1.26",
+        "cheerio": "^1.2.0",
+        "crypto-js": "^4.2.0",
+        "dotenv": "^16.4.5",
+        "ipaddr.js": "2.5.0",
+        "undici": "8.10.2"
+    },
+    "devDependencies": {
+        "@types/crypto-js": "^4.2.2",
+        "@types/node": "^22.7.4",
+        "prettier": "^3.3.3",
+        "tsx": "^4.19.1",
+        "typescript": "^5.6.2"
+    }
+}

@@ -1,0 +1,61 @@
+name: cinepro-web
+
+services:
+  app:
+    build: .
+    env_file: ../.local/stream-providers.env
+    restart: unless-stopped
+    init: true
+    ports:
+      - "127.0.0.1:${WEB_PORT:-5180}:5175"
+    environment:
+      NODE_ENV: production
+      HOST: 0.0.0.0
+      PORT: 5175
+      APP_ORIGIN: ${APP_ORIGIN:-http://localhost:5180}
+      ALLOWED_HOSTS: ${APP_ORIGIN:-http://localhost:5180}
+      TRUST_PROXY: ${TRUST_PROXY:-false}
+      SIGNUP_ENABLED: ${SIGNUP_ENABLED:-false}
+      DATABASE_URL: postgresql://cinepro:${POSTGRES_PASSWORD:?Run node scripts/setup-env.mjs first}@db:5432/cinepro
+      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID:-}
+      GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET:-}
+      GOOGLE_ALLOWED_EMAILS: ${GOOGLE_ALLOWED_EMAILS:-}
+    depends_on:
+      db:
+        condition: service_healthy
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+
+  core:
+    build: ./core
+    env_file: ../.local/stream-providers.env
+    restart: unless-stopped
+    init: true
+    environment:
+      HOST: 0.0.0.0
+      PORT: 3030
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+
+  db:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: cinepro
+      POSTGRES_USER: cinepro
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Run node scripts/setup-env.mjs first}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U cinepro -d cinepro"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+      start_period: 10s
+
+volumes:
+  postgres_data:

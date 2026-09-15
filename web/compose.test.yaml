@@ -1,0 +1,5 @@
+# Optional local PostgreSQL access for integration tests; never needed by the app.
+services:
+  db:
+    ports:
+      - "127.0.0.1:${POSTGRES_TEST_PORT:-55432}:5432"

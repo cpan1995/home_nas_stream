@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#eaf3fa" />
+    <title>Screening Room · Remote</title>
+    <link rel="stylesheet" href="/remote/remote.css" />
+    <script src="/remote/remote.js" defer></script>
+  </head>
+  <body>
+    <main class="remote">
+      <header>
+        <span class="eyebrow">SCREENING ROOM</span>
+        <h1>Your remote.</h1>
+        <p id="connection" role="status">Connecting to your player…</p>
+      </header>
+      <div class="homes" aria-label="Home shortcuts">
+        <button data-command="CineProHome">
+          <span aria-hidden="true">◈</span>CinePro home
+        </button>
+        <button data-command="Home">
+          <span aria-hidden="true">⌂</span>NAS home
+        </button>
+      </div>
+      <button
+        id="keyboard-toggle"
+        aria-expanded="false"
+        aria-controls="keyboard-panel"
+      >
+        Keyboard
+      </button>
+      <form id="keyboard-panel" hidden>
+        <label for="remote-text">Type with your phone</label>
+        <p id="keyboard-hint">Text is sent to the search field on your TV.</p>
+        <input
+          id="remote-text"
+          type="text"
+          maxlength="256"
+          autocomplete="off"
+          autocapitalize="none"
+          spellcheck="false"
+          enterkeyhint="send"
+          placeholder="Search movies…"
+          aria-describedby="keyboard-hint"
+        />
+        <div class="keyboard-actions">
+          <button
+            type="button"
+            data-command="Backspace"
+            aria-label="Backspace on TV"
+          >
+            ⌫ Delete
+          </button>
+          <button type="submit" id="send-text">Send text</button>
+          <button type="button" data-command="Enter">Enter</button>
+        </div>
+        <p id="keyboard-status" role="status" aria-live="polite"></p>
+      </form>
+      <section class="navigation" aria-label="Player navigation">
+        <button
+          id="trackpad"
+          aria-label="Trackpad: swipe to navigate, tap to select"
+          aria-describedby="pad-hint"
+        >
+          <span class="direction up" aria-hidden="true">⌃</span>
+          <span class="direction left" aria-hidden="true">‹</span>
+          <span class="pad-center"
+            ><span id="feedback" aria-hidden="true">OK</span
+            ><span class="tap-label">TAP TO SELECT</span></span
+          >
+          <span class="direction right" aria-hidden="true">›</span>
+          <span class="direction down" aria-hidden="true">⌄</span>
+        </button>
+        <p id="pad-hint">Swipe to move. Tap to select.</p>
+      </section>
+      <section class="volume-control" aria-label="Player volume">
+        <div>
+          <label for="volume">Volume</label
+          ><output id="volume-value" for="volume">—</output>
+        </div>
+        <input
+          id="volume"
+          type="range"
+          min="0"
+          max="100"
+          step="1"
+          value="100"
+          disabled
+        />
+      </section>
+      <button class="back" data-command="Back">
+        <span aria-hidden="true">↶</span>Back
+      </button>
+      <button id="retry" hidden>Reconnect</button>
+      <footer>Made for the big screen.</footer>
+    </main>
+  </body>
+</html>
