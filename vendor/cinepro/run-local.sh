@@ -30,8 +30,8 @@ exec bwrap --ro-bind /usr /usr "${cinepro_library_mounts[@]}" \
   --ro-bind /etc/hosts /etc/hosts --ro-bind /etc/nsswitch.conf /etc/nsswitch.conf \
   --ro-bind "$cinepro_node" /runtime-node \
   --ro-bind "$cinepro_dir" /app \
-  --ro-bind "$cinepro_dir/../stream-providers.env" /app/stream-providers.env "${cinepro_mounts[@]}" \
+  --ro-bind "$cinepro_dir/../stream-providers.env" /stream-providers.env "${cinepro_mounts[@]}" \
   --proc /proc --dev /dev --tmpfs /tmp \
   --unshare-pid --unshare-uts --unshare-ipc --die-with-parent \
   --clearenv --setenv PATH /usr/bin:/bin --setenv NODE_ENV production \
-  --chdir /app /runtime-node --env-file=stream-providers.env --max-old-space-size=384 "$cinepro_entry" "${@:2}"
+  --chdir /app /runtime-node --env-file=/stream-providers.env --max-old-space-size=384 "$cinepro_entry" "${@:2}"
