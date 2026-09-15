@@ -2,6 +2,7 @@
 set -euo pipefail
 cinepro_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 cinepro_mode="${1:-start}"
+cinepro_node="$(readlink -f "$(command -v node)")"
 cinepro_mounts=()
 case "$cinepro_mode" in
   start) cinepro_entry=local-server.mjs ;;
@@ -27,9 +28,10 @@ done
 exec bwrap --ro-bind /usr /usr "${cinepro_library_mounts[@]}" \
   --ro-bind /etc/ssl /etc/ssl --ro-bind /etc/resolv.conf /etc/resolv.conf \
   --ro-bind /etc/hosts /etc/hosts --ro-bind /etc/nsswitch.conf /etc/nsswitch.conf \
+  --ro-bind "$cinepro_node" /runtime-node \
   --ro-bind "$cinepro_dir" /app \
   --ro-bind "$cinepro_dir/../stream-providers.env" /app/stream-providers.env "${cinepro_mounts[@]}" \
   --proc /proc --dev /dev --tmpfs /tmp \
   --unshare-pid --unshare-uts --unshare-ipc --die-with-parent \
   --clearenv --setenv PATH /usr/bin:/bin --setenv NODE_ENV production \
-  --chdir /app /usr/bin/node --env-file=stream-providers.env --max-old-space-size=384 "$cinepro_entry" "${@:2}"
+  --chdir /app /runtime-node --env-file=stream-providers.env --max-old-space-size=384 "$cinepro_entry" "${@:2}"
