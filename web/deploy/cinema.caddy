@@ -1,4 +1,4 @@
-cinema.example.com {
+{$CINEMA_HOST:localhost} {
     encode zstd gzip
     reverse_proxy 127.0.0.1:5180
     header Strict-Transport-Security "max-age=31536000"

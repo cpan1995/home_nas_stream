@@ -74,7 +74,7 @@ Checks completed for this change:
 
 The iPhone app was observed requesting /ecp-session, which prompted ECP-2
 WebSocket support. The updated handshake and WebSocket playback integration
-pass on Windows; the Linux HTTP integration also passes. The iPhone at 192.0.2.30 subsequently authenticated and sent multiple
+pass on Windows; the Linux HTTP integration also passes. A phone subsequently authenticated and sent multiple
 successful button commands to the updated Windows app. Raspberry Pi hardware
 remains unverified.
 The receiver implements a limited protocol; it is not guaranteed to work with

@@ -153,6 +153,7 @@ To connect a Windows/NAS SMB share, run:
 python3 scripts/connect-nas.py
 ```
 
+Replace the documentation address and account below with your actual values.
 Enter the share location (for example `//192.0.2.10/Movies`), Windows username
 (for example `MEDIA-PC\media-reader`), and the Windows account password when prompted.
 The password is hidden while typing. For a manual installation, install

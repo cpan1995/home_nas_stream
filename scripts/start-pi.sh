@@ -10,8 +10,12 @@ if [[ ! -x build/screening-room ]]; then
     exit 1
 fi
 default_library=/mnt/movies
-if [[ -n "${WSL_DISTRO_NAME:-}" && -d /mnt/movies ]]; then
-    default_library=/mnt/movies
+if [[ -z "${SCREENING_ROOM_LIBRARY_DIR:-}" && -f "$package_root/.local/library-path" ]]; then
+    default_library=$(cat -- "$package_root/.local/library-path")
+    if [[ -z "$default_library" ]]; then
+        echo "The local library-path file must contain a movie folder." >&2
+        exit 1
+    fi
 fi
 export SCREENING_ROOM_STREAM_CONFIG="$package_root/.local/stream-providers.env"
 exec ./build/screening-room \

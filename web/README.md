@@ -88,3 +88,11 @@ To run the PostgreSQL integration test directly from the host, use `docker compo
 The signup browser tests require SIGNUP_ENABLED=true and create uniquely named test accounts. For closed-registration deployments run `WEB_TEST_URL=http://localhost:5180 node tests/closed-signup-ui.mjs`. Authentication unit tests use an explicit test store and mocked Google verification; PostgreSQL integration checks validate the real persistence layer. A real Google redirect additionally needs your OAuth credentials.
 
 Derived from CinePro UI; upstream license is retained in `LICENSE.md`.
+
+### Reverse proxy template
+
+`deploy/cinema.caddy` reads `CINEMA_HOST` from the Caddy process environment
+(default: `localhost`). Set it to your own hostname in the server's private
+service configuration and keep `APP_ORIGIN` consistent with that HTTPS origin.
+An existing deployment should preserve its current hostname when adopting this
+template. No deployed proxy or application configuration is changed by checkout.

@@ -63,8 +63,9 @@ npm run build:native
 npm run start:directory
 ```
 
-`npm run start:directory` uses `/mnt/movies`, or `/mnt/movies` when running
-under WSL with that folder present. Data and metadata configuration live in
+`npm run start:directory` uses `/mnt/movies` by default. Configure a different folder
+using the ignored `.local/library-path` file (including paths mounted in WSL).
+Data and metadata configuration live in
 `.local/`. Set `SCREENING_ROOM_LIBRARY_DIR` to override the movie folder.
 For another folder or a mounted NAS:
 
@@ -331,3 +332,13 @@ The optional [local MCP server](../mcp/README.md) exposes remote buttons, text e
 app switching, prepared title-search navigation, and basic app/volume status to Codex or another MCP client. It runs
 over stdio and connects to the native app's existing receiver. Install its
 dependencies separately in `mcp/`; no Raspberry Pi deployment is required.
+
+## Portable Windows launchers
+
+The `.cmd` launchers use the checkout containing them, including WSL UNC paths.
+For a Windows checkout, the default WSL distribution is used. Override it with
+`SCREENING_ROOM_WSL_DISTRO`; use `SCREENING_ROOM_PROJECT_DIR` to point at a
+separate Linux checkout. Set these privately in your Windows environment.
+Set the movie folder in that checkout's ignored `.local/library-path` file;
+see [NAS setup](../NAS.md). Existing users of a different default movie folder
+should create this file before using the updated launchers.

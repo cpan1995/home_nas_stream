@@ -1,10 +1,13 @@
 # Run in an elevated Windows PowerShell session on this home theater PC.
 # Shares movie files for playback using the existing Windows account.
+[CmdletBinding()]
+param(
+    [Parameter(Mandatory = $true)][ValidateNotNullOrEmpty()][string]$MoviePath,
+    [Parameter(Mandatory = $true)][ValidateNotNullOrEmpty()][string]$Reader,
+    [Parameter(Mandatory = $true)][ValidateNotNullOrEmpty()][string]$HomeInterface
+)
 $ErrorActionPreference = 'Stop'
 $shareName = 'Movies'
-$moviePath = 'D:\Media\Movies'
-$reader = 'MEDIA-PC\media-reader'
-$homeInterface = 'Ethernet'
 $firewallName = 'HomeTheater-Movies-SMB-In'
 $createdShare = $false
 $createdRule = $false
@@ -14,9 +17,6 @@ try {
     $principal = [Security.Principal.WindowsPrincipal]$identity
     if (-not $principal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
         throw 'Run this script as a Windows administrator.'
-    }
-    if ($env:COMPUTERNAME -ne 'MEDIA-PC') {
-        throw 'This script is configured for MEDIA-PC.'
     }
     if (-not (Test-Path -LiteralPath $moviePath -PathType Container)) {
         throw "Movie folder does not exist: $moviePath"
